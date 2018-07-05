@@ -1,4 +1,4 @@
-1. cookie和session, cookie和webStorage的区别，如果cookie被篡改怎么办
+﻿1. cookie和session, cookie和webStorage的区别，如果cookie被篡改怎么办
 2. 跨域的方法
 3. 因为引用计数产生的内存泄漏，在ES6中的解决办法是什么
 4. js中基本类型在内存中存储方式是什么，引用类型的存储方式是什么
@@ -28,3 +28,11 @@
 29.ES6中map遍历的实现原理
 30.数组去重问题
 31.React的思想和原理，虚拟DOM树和diff算法
+
+
+
+
+http://www.bslxx.com/a/mianshiti/tiku/2017/1218/1519.html     css
+http://www.bslxx.com/a/mianshiti/tiku/javascript/2017/1105/1405.html       javascript
+https://juejin.im/post/5a9b8417518825558251ce15       vue
+https://www.cnblogs.com/running-runtu/p/9154719.html  vue

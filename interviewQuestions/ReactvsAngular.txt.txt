@@ -1,2 +1,9 @@
+react vs angular
 https://juejin.im/post/5a0d5df1f265da43062a542f
 http://blog.sprabbit.com/2016/03/05/Angular-React-Vue-Rendering-2/
+
+react 架构设计
+https://yq.aliyun.com/articles/609680?utm_content=m_1000006021
+https://blog.csdn.net/uxiAD7442KMy1X86DtM3/article/details/79040042
+
+react 性能优化，原理， ...

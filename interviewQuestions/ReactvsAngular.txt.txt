@@ -7,3 +7,6 @@ https://yq.aliyun.com/articles/609680?utm_content=m_1000006021
 https://blog.csdn.net/uxiAD7442KMy1X86DtM3/article/details/79040042
 
 react 性能优化，原理， ...
+
+react小红书
+http://huziketang.mangojuice.top/books/react/

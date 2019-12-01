@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.cnblogs.com/shimily/articles/7366141.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="首先要有个容器，并设置display:flex;display:-webkit-flex;该容器有以下六个属性： 项目的属性： 1.flex-direction 2.flex-wrap 3.flex-">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3分钟看懂flex布局 - Shimily - 博客园</title>
+    
+    <link rel="stylesheet" href="./3分钟看懂flex布局 - Shimily - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./3分钟看懂flex布局 - Shimily - 博客园_files/bundle-classic.min.css">
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./3分钟看懂flex布局 - Shimily - 博客园_files/bundle-classic-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/shimily/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/shimily/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/shimily/wlwmanifest.xml">
+    <script src="./3分钟看懂flex布局 - Shimily - 博客园_files/osd.js.下载"></script><script src="./3分钟看懂flex布局 - Shimily - 博客园_files/pubads_impl_rendering_2019111801.js.下载"></script><script async="" src="./3分钟看懂flex布局 - Shimily - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./3分钟看懂flex布局 - Shimily - 博客园_files/encoder.js.下载"></script><script src="./3分钟看懂flex布局 - Shimily - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./3分钟看懂flex布局 - Shimily - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 186936;
+        var currentBlogApp = 'shimily';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+<link rel="preload" href="./3分钟看懂flex布局 - Shimily - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./3分钟看懂flex布局 - Shimily - 博客园_files/f.txt"></script><script src="./3分钟看懂flex布局 - Shimily - 博客园_files/pubads_impl_2019111801.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-36/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    <table align="center" width="98%" cellspacing="0" cellpadding="0" border="0" style="margin-top:10px">
+<tbody><tr>
+	<td valign="top" width="70%" style="padding:0">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+<div id="header">
+	<span>
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/shimily/">Shimily</a>
+<br>
+		<div class="sub">
+学而不思则罔，思而不学则殆
+</div>
+	</span>
+</div>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white" class="index">
+		<tbody><tr>
+			<td class="main">
+			<div id="post_detail">
+<div class="block">
+	<h1 class="block_title">
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/shimily/articles/7366141.html">3分钟看懂flex布局</a>
+</h1>
+	<div class="post">
+		<div class="postcontent">
+			
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>首先要有个<strong>容器</strong>，并设置display:flex;display:-webkit-flex;该容器有以下六个属性：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> flex-<span style="color: #000000;">direction (元素排列方向)
+</span><span style="color: #008080;"> 2</span>     row, row-reverse, column, column-<span style="color: #000000;">reverse
+</span><span style="color: #008080;"> 3</span> flex-<span style="color: #000000;">wrap (换行)
+</span><span style="color: #008080;"> 4</span>     nowrap, wrap, wrap-<span style="color: #000000;">reverse
+</span><span style="color: #008080;"> 5</span> flex-<span style="color: #000000;">flow (以上两者的简写)
+</span><span style="color: #008080;"> 6</span>     flex-direction || flex-<span style="color: #000000;">wrap
+</span><span style="color: #008080;"> 7</span> justify-<span style="color: #000000;">content (水平对齐方式)
+</span><span style="color: #008080;"> 8</span>     flex-start, flex-end, center, space-between, space-<span style="color: #000000;">around
+</span><span style="color: #008080;"> 9</span> align-<span style="color: #000000;">items (垂直对齐方式)
+</span><span style="color: #008080;">10</span>     stretch, flex-start, flex-<span style="color: #000000;">end, center, baseline
+</span><span style="color: #008080;">11</span> align-<span style="color: #000000;">content (多行垂直对齐方式)
+</span><span style="color: #008080;">12</span>     stretch, flex-start, flex-end, center, space-between, space-around</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>项目</strong>的属性：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">order 排列顺序，数值，默认0
+</span><span style="color: #008080;"> 2</span>     <span style="color: #800000;">"</span><span style="color: #800000;">integer</span><span style="color: #800000;">"</span>
+<span style="color: #008080;"> 3</span> flex-<span style="color: #000000;">grow 如图示7，定义放大比例，默认0，即如果存在剩余空间，也不放大。
+</span><span style="color: #008080;"> 4</span>     <span style="color: #800000;">"</span><span style="color: #800000;">number</span><span style="color: #800000;">"</span>
+<span style="color: #008080;"> 5</span> flex-shrink 如图示8，定义缩小比例，默认1，如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-<span style="color: #000000;">shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+</span><span style="color: #008080;"> 6</span>     <span style="color: #800000;">"</span><span style="color: #800000;">number</span><span style="color: #800000;">"</span>
+<span style="color: #008080;"> 7</span> flex-basis 定义项目占据的主轴空间，默认auto。会根据flex-<span style="color: #000000;">direction定义的主轴（水平或者垂直），定义项目本来的大小，跟width或者height一样。
+</span><span style="color: #008080;"> 8</span> flex 推荐，以上三个的缩写，默认 <span style="color: #800080;">0</span> <span style="color: #800080;">1</span><span style="color: #000000;"> auto
+</span><span style="color: #008080;"> 9</span>     <span style="color: #800000;">"</span><span style="color: #800000;">flex-grow</span><span style="color: #800000;">"</span> <span style="color: #800000;">"</span><span style="color: #800000;">flex-shrink</span><span style="color: #800000;">"</span> <span style="color: #800000;">"</span><span style="color: #800000;">flex-basis</span><span style="color: #800000;">"</span>
+<span style="color: #008080;">10</span> align-self 如图示9，单个项目有与其他项目不一样的对齐方式，可覆盖align-<span style="color: #000000;">items
+</span><span style="color: #008080;">11</span>     <span style="color: #800000;">"</span><span style="color: #800000;">auto</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">flex-start</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">flex-end</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">center</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">baseline</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">stretch</span><span style="color: #800000;">"</span>　</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>1.flex-direction</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_767274" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">row (从左往右)默认</code></div><div class="line number2 index1 alt1"><code class="bash plain">row-reverse (从右往左)</code></div><div class="line number3 index2 alt2"><code class="bash plain">column (从上往下)</code></div><div class="line number4 index3 alt1"><code class="bash plain">column-reverse (从下往上)</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;2.flex-wrap</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #000000;">nowrap (不换行)默认
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">wrap (换行，且往下一行换)
+</span><span style="color: #008080;">3</span> wrap-reverse (换行，且往上一行换)</pre>
+</div>
+<p><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170602256-2018859033.png" alt=""></p>
+<p>3.flex-flow，是flex-direction和flex-wrap的简写形式。</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_389763" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">flex-flow:&lt;flex-direction&gt; || &lt;flex-wrap&gt;;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;4.justify-content</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_93706" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">flex-start</code></div><div class="line number2 index1 alt1"><code class="bash plain">flex-end</code></div><div class="line number3 index2 alt2"><code class="bash plain">center</code></div><div class="line number4 index3 alt1"><code class="bash plain">space-between</code></div><div class="line number5 index4 alt2"><code class="bash plain">space-around</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170638006-637299117.png" alt=""></p>
+<p>5.align-items</p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_747854" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">stretch 默认</code></div><div class="line number2 index1 alt1"><code class="bash plain">flex-start</code></div><div class="line number3 index2 alt2"><code class="bash plain">flex-end</code></div><div class="line number4 index3 alt1"><code class="bash plain">center</code></div><div class="line number5 index4 alt2"><code class="bash plain">baseline 项目第一行文字的基准线对齐</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170702553-1621118370.png" alt=""></p>
+<p>6.align-content</p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_750968" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">stretch 默认</code></div><div class="line number2 index1 alt1"><code class="bash plain">flex-start</code></div><div class="line number3 index2 alt2"><code class="bash plain">flex-end</code></div><div class="line number4 index3 alt1"><code class="bash plain">center</code></div><div class="line number5 index4 alt2"><code class="bash plain">space-between</code></div><div class="line number6 index5 alt1"><code class="bash plain">space-around</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170725896-799501206.png" alt=""></p>
+<p>7.flex-grow</p>
+<p>定义了放大比例，默认为0，即如果存在剩余空间，也不会放大。但是，如果所有项目的flex-grow属性为1，则他们将等分剩余空间（如果有的话），如果其中一个为2，则他是其他项目的2倍宽度。</p>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170743490-818484394.png" alt="" width="850" height="172"></p>
+<p>8.flex-shrink</p>
+<p>定义了项目的缩小比例，默认为1，即如果空间不足，项目将缩小。如果有一个项目的flex-shrink为0，其他都为1，空间不足时，前者不缩小。</p>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170810865-478893055.png" alt="" width="479" height="240"></p>
+<p>&nbsp;</p>
+<p>&nbsp;9.align-self，定义项目自己的对齐方式</p>
+<p>&nbsp;</p>
+<p>&nbsp;<img src="./3分钟看懂flex布局 - Shimily - 博客园_files/309980-20170815170824303-2001327788.png" alt="" width="317" height="241"></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature" style="display: block;">给心灵一个纯净空间，让思想，情感，飞扬！</div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/shimily/category/596325.html" target="_blank">Html+css</a>,             <a href="https://www.cnblogs.com/shimily/category/582354.html" target="_blank">Html5+CSS3</a></div>
+
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7366141,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;9e3673d2-709c-e011-a53f-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/shimily/" target="_blank"><img src="./3分钟看懂flex布局 - Shimily - 博客园_files/20140527143208.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/shimily/">Shimily</a><br>
+            <a href="https://home.cnblogs.com/u/shimily/followees/">关注 - 82</a><br>
+            <a href="https://home.cnblogs.com/u/shimily/followers/">粉丝 - 29</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;9e3673d2-709c-e011-a53f-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7366141,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(7366141,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+		</div>
+		<div class="itemdesc">
+			发表于 
+<span id="post-date">2017-08-15 17:09</span>&nbsp;
+<a href="https://www.cnblogs.com/shimily/">Shimily</a>&nbsp;
+阅读(<span id="post_view_count">55</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditArticles.aspx?postid=7366141" rel="nofollow">
+    编辑
+</a>
+<a href="javascript:void(0)" onclick="AddToWz(7366141);return false;">收藏</a>
+		</div>
+	</div>
+	<div class="seperator">&nbsp;</div>
+	
+	
+<script src="./3分钟看懂flex布局 - Shimily - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 186936, cb_blogApp = 'shimily', cb_blogUserGuid = '9e3673d2-709c-e011-a53f-842b2b196315';
+    var cb_entryId = 7366141, cb_entryCreatedDate = '2017-08-15 17:09', cb_postType = 2; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/shimily/articles/7366141.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/shimily/articles/7366141.html#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/act/pro/overseas?fromSource=gwzcw.3090393.3090393.3090393&amp;utm_medium=cpc&amp;utm_id=gwzcw.3090393.3090393.3090393" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【推荐】腾讯云海外1核2G云服务器低至2折，半价续费券限量免费领取！</a><br><a href="http://click.aliyun.com/m/1000081987/" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-阿里云&#39;)">【推荐】阿里云双11返场来袭，热门产品低至一折等你来抢！</a><br><a href="https://www.ctyun.cn/activity/20191111?hmsr=%E7%9C%8B%E7%9C%8B-%E5%8D%9A%E5%AE%A2%E5%9B%AD-%E5%8F%8C11-1106&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-天翼云&#39;)">【推荐】天翼云双十一翼降到底，云主机11.11元起，抽奖送大礼</a><br><a href="https://www.uibot.com.cn/sem/bky.html" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-uibot_T2&#39;)">【推荐】流程自动化专家UiBot，体系化教程成就高薪RPA工程师</a><br><a href="https://www.jdcloud.com/cn/activity/year-end?utm_source=DMT_cnblogs&amp;utm_medium=CH&amp;utm_campaign=q4vm&amp;utm_term=Virtual-Machines" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-京东云&#39;)">【活动】京东云服务器_云主机低于1折，低价高性能产品备战双11</a><br><a href="https://www.qiniu.com/events/20191111?utm_campaign=2019_1111&amp;utm_content=cnblogs_1111&amp;utm_medium=banner&amp;utm_source=cnblogs&amp;utm_term=cnblogs_1111" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-七牛云&#39;)">【优惠】七牛云采购嘉年华，云存储、CDN等云产品低至1折</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./3分钟看懂flex布局 - Shimily - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CKCzn4fmlOYCFY2Jlgodei8PZA"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./3分钟看懂flex布局 - Shimily - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="flex布局" href="https://www.cnblogs.com/yansj1997/p/5482811.html" target="_blank" onclick="clickRecomItmem(5482811)">flex布局</a><br>·  <a title="30分钟彻底弄懂flex布局" href="https://www.cnblogs.com/zhilin/p/10497584.html" target="_blank" onclick="clickRecomItmem(10497584)">30分钟彻底弄懂flex布局</a><br>·  <a title="css3flex布局" href="https://www.cnblogs.com/lihuijuan/p/8793292.html" target="_blank" onclick="clickRecomItmem(8793292)">css3flex布局</a><br>·  <a title="css3的flex布局" href="https://www.cnblogs.com/lxiang/p/4766813.html" target="_blank" onclick="clickRecomItmem(4766813)">css3的flex布局</a><br>·  <a title="Flex布局" href="https://www.cnblogs.com/module/p/5578533.html" target="_blank" onclick="clickRecomItmem(5578533)">Flex布局</a><br>»  <a target="_blank" href="https://recomm.cnblogs.com/blogpost/7366141">更多推荐...</a><div id="cnblogs_t5"><a href="https://developer.aliyun.com/article/721829?utm_content=g_1000088935" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T5-阿里云开发者社区&#39;)">2019热门技术盛会400则演讲资料全收录</a></div></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CKGzn4fmlOYCFY2Jlgodei8PZA">
+            
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./3分钟看懂flex布局 - Shimily - 博客园_files/saved_resource(1).html"></iframe></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/651280/" target="_blank">极光上市一年估值业绩双杀 转型SaaS 转成“负增长”</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/651279/" target="_blank">微信发原图或泄露隐私？腾讯正式回应</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/651277/" target="_blank">印尼将用AI技术取代大量公务员：减少繁琐程序，吸引投资</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/651278/" target="_blank">“早熟”的少儿编程：需求没起来，供给已饱和</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/651276/" target="_blank">英特尔否认找三星代工CPU：韩媒报道不准确</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div></div>
+</div>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+	<td width="10">&nbsp;</td>
+	<td valign="top">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+			<table width="100%" height="200">
+			<tbody><tr>
+				<td><div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/11/01&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2019年12月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/01/01&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                        <td class="CalTodayDay" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                        <td class="" align="center">
+                            4
+                        </td>
+                        <td class="" align="center">
+                            5
+                        </td>
+                        <td class="" align="center">
+                            6
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        7
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            8
+                        </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                            <td class="" align="center">
+                                12
+                            </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            14
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            15
+                        </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                            <td class="" align="center">
+                                19
+                            </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            21
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            22
+                        </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                            <td class="" align="center">
+                                26
+                            </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            28
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            29
+                        </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="" align="center">
+                                31
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                1
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                2
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            4
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            5
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                8
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                9
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                10
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            11
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script></td>
+			</tr>
+			</tbody></table>
+				
+
+	
+				
+<h1>&nbsp;导航</h1>
+<ul class="list" type="square">
+	<li class="listitem"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+	<li class="listitem">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/shimily/">
+首页</a>
+</li>
+	<li class="listitem">
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li class="listitem">
+
+<a id="MyLinks1_NewArticleLink" class="menu" href="https://i.cnblogs.com/EditArticles.aspx?opt=1">新文章</a>
+</li>
+	<li class="listitem">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Shimily">
+联系</a></li>
+	<li class="listitem">
+
+</li>
+	<li class="listitem">
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+				<h1>&nbsp;统计</h1>
+	<ul class="list" type="square">
+		<li class="listitem">随笔： 
+46</li>
+		<li class="listitem">文章： 
+682</li>
+		<li class="listitem">评论： 
+14</li>
+		<li class="listitem">引用： 
+0</li>
+</ul>
+
+
+				<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+        <li>
+
+<a href="https://www.cnblogs.com/shimily/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/shimily/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/shimily/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/shimily/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+        <li>
+
+<a href="https://www.cnblogs.com/shimily/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+</ul>
+
+<!-- TODO: 检查是否有使用这一部分的控件，如果没有则应该删除。 -->
+<div id="itemListLin_con" style="display:none">
+    <ul>
+
+    </ul>
+</div>
+
+</div>
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+		<h1 class="listtitle">
+
+随笔分类
+<span style="font-size:11px;font-weight:normal">(87)</span>
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582315.html" rel="" target="">
+    Javascript(10)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582316.html" rel="" target="">
+    Jquery(9)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582347.html" rel="" target="">
+    js特效(9)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1223198.html" rel="" target="">
+    Mcake卡法电子商务(3)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1439645.html" rel="" target="">
+    儿童教学(2)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/596898.html" rel="" target="">
+    好网站收藏(14)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1172248.html" rel="" target="">
+    卡法电子商务有限公司(1)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1357942.html" rel="" target="">
+    生活小妙招(2)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/663445.html" rel="" target="">
+    视频教程(2)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582307.html" rel="" target="">
+    我的笔记(18)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582305.html" rel="" target="">
+    移动开发(13)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/666928.html" rel="" target="">
+    重要文件(3)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/674266.html" rel="" target="">
+    字体(1)
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+文章分类
+<span style="font-size:11px;font-weight:normal">(1504)</span>
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/666962.html" rel="" target="">
+    【卡法电子商务 资料】(12)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/662431.html" rel="" target="">
+    Ajax、json、jsonp(12)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/744437.html" rel="" target="">
+    angularJs(2)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/960717.html" rel="" target="">
+    A函数封装(10)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/655127.html" rel="" target="">
+    Cavans  SVG(3)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/777561.html" rel="" target="">
+    Dedecms/phpcms(13)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/603347.html" rel="" target="">
+    form表单,iframe(31)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/944536.html" rel="" target="">
+    git + npm(11)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/596325.html" rel="" target="">
+    Html+css(160)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582354.html" rel="" target="">
+    Html5+CSS3(220)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582356.html" rel="" target="">
+    Javascript(180)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582357.html" rel="" target="">
+    Jquery(171)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/652799.html" rel="" target="">
+    Less Sass(7)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/769929.html" rel="" target="">
+    nodeJS + gulp + angularJs(20)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/601142.html" rel="" target="">
+    php学习(7)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1021451.html" rel="" target="">
+    Seajs(1)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/595777.html" rel="" target="">
+    swiper(6)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/653358.html" rel="" target="">
+    ThinkPHP(1)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1103419.html" rel="" target="">
+    vueJs 和 vue-cli脚手架(37)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/746783.html" rel="" target="">
+    办公软件(4)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/681998.html" rel="" target="">
+    常用插件(50)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/603478.html" rel="" target="">
+    常用工具(25)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582359.html" rel="" target="">
+    常用函数(109)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582355.html" rel="" target="">
+    常用特效(85)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582353.html" rel="" target="">
+    程序开发(3)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/603949.html" rel="" target="">
+    好用插件(51)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1242350.html" rel="" target="">
+    教师资格证考试(1)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/655537.html" rel="" target="">
+    面试题(8)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1099799.html" rel="" target="">
+    前端常用框架(4)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582352.html" rel="" target="">
+    前端开发(115)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1527875.html" rel="" target="">
+    时间日期格式(10)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/598818.html" rel="" target="">
+    手机屏幕(9)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/582358.html" rel="" target="">
+    数据库(1)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/627819.html" rel="" target="">
+    微信开发(26)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/1425650.html" rel="" target="">
+    微信小程序开发(20)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/590789.html" rel="" target="">
+    移动开发(63)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/603050.html" rel="" target="">
+    正则表达式(11)
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/category/682837.html" rel="" target="">
+    字体设置(5)
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+相册
+<span style="font-size:11px;font-weight:normal">(0)</span>
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/gallery/596348.html" rel="nofollow noopener noreferrer" target="">
+    博客图
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://www.cnblogs.com/shimily/gallery/596349.html" rel="nofollow noopener noreferrer" target="">
+    我的相册
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+常用工具
+
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="http://www.cnblogs.com/lidabo/archive/2012/01/10/2317706.html" rel="" target="">
+    DoubleLi
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://blog.snsgou.com/" rel="nofollow noopener noreferrer" target="">
+    php博客
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.highcharts.com/demo/line-time-series" rel="nofollow noopener noreferrer" target="">
+    图表统计图  组件
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.dglives.com/category/%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/page/2" rel="" target="">
+    网页特效 好  css3  jquery
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/lhb25/p/loading-spinners-animated-with-css3.html" rel="nofollow noopener noreferrer" target="">
+    ★【实用动画css3】使用 CSS3 实现超炫的 Loading（加载）动画效果,适用手机端 ★
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/scavengers/p/3760449.html" rel="nofollow noopener noreferrer" target="">
+    Swiper说明&amp;&amp;API手册  中文版
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/lhb25/archive/2012/09/27/10-css3-online-generator-tools.html" rel="" target="">
+    在线 CSS3 代码生成工具
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.daqianduan.com/3708.html" rel="nofollow noopener noreferrer" target="">
+    推荐13个CSS3快速开发工具
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://jqueryvalidation.org/" rel="nofollow noopener noreferrer" target="">
+    表单验证
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.w2bc.com/shili" rel="nofollow noopener noreferrer" target="">
+    w2bc爱编程- 特效
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/shimily/articles/3936795.html" rel="nofollow noopener noreferrer" target="">
+    ★★★【Swiper】说明&amp;&amp;API手册★★★★
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+常用记录
+
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="http://www.cnblogs.com/shimily/articles/4313537.html" rel="nofollow noopener noreferrer" target="">
+    【ajax】： 从后台获取数据的方法 ★★★★★★★★
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/shimily/articles/4313805.html" rel="nofollow noopener noreferrer" target="">
+    【ajax】:JQuery中$.()方法参数详解 ★★★★★★★★
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/shimily/articles/4315692.html" rel="nofollow noopener noreferrer" target="">
+    【ajax】： 向后台提交数据的方法 php接受数据 ★★★★★★★★★★★★★★★★
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.cnblogs.com/shimily/articles/4316205.html" rel="nofollow noopener noreferrer" target="">
+    img图片上下左右切相对文字【居中】的方法
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.itbool.com/php-video.html" rel="nofollow noopener noreferrer" target="">
+    【孙钦泉 推荐】最适合自学的全套PHP、MySQL、Linux视频教程
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+好友博客收藏
+
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="http://www.xinran001.com/bbs/" rel="nofollow noopener noreferrer" target="">
+    金老师的论坛
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://www.sunrisenan.com/" rel="nofollow noopener noreferrer" target="_blank">
+    李延召——运维之窗
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="https://blog.csdn.net/shimilygood" rel="nofollow noopener noreferrer" target="_blank">
+    shimilygood
+</a>
+ 
+</li>
+				<li class="listitem">
+<a href="http://blog.51cto.com/sunrisenan" rel="nofollow noopener noreferrer" target="">
+    李延召-花开如昔
+</a>
+ 
+</li>
+			
+				</ul>
+		<h1 class="listtitle">
+
+网站收藏
+
+
+</h1>
+				<ul class="list" type="square">
+			
+				<li class="listitem">
+<a href="http://jobs.ele.me/" rel="nofollow noopener noreferrer" target="">
+    动态滚动条
+</a>
+ 
+</li>
+			
+				</ul>
+
+
+</div>
+
+<!-- 最新评论 -->
+
+
+
+
+<!-- 阅读排行榜 -->
+
+
+<!-- 评论排行榜 -->
+
+
+<!-- 推荐排行榜 -->
+</div>
+                    <script>loadBlogSideColumn();</script>
+			<br>
+			<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com/">博客园</a><br>模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a><br>
+	Copyright © 2019 Shimily
+<br><span id="poweredby">Powered by .NET Core 3.0.0 on Linux</span>
+
+</div>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<br>
+
+
+    
+
+
+<iframe id="google_osd_static_frame_8395219071963" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./3分钟看懂flex布局 - Shimily - 博客园_files/saved_resource(2).html"></iframe></body></html>

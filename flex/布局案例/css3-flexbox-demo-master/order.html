@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Untitled Document</title>
+        <style>
+            .flex-box {
+                margin: 2em;
+                border: 1px solid #ccc;
+                height: 100px;
+                width: 300px;
+                
+                display: -webkit-flex;
+                display: flex;
+                
+                -webkit-flex-direction: row;
+                flex-direction: row; /* row, row-reverse, column, column-reverse */
+                
+                -webkit-align-items: flex-start;
+                align-items: flex-start;
+            }
+            
+            .flex-item {
+                min-width: 100px;
+                min-height: 100px;
+                color: #fff;
+                font-weight: bold;
+                font-family: arial;
+            }
+            
+            .item-1 {
+                background: green;
+                -webkit-order: 2;
+                order: 2;
+            }
+            
+            .item-2 {
+                background: red;
+                -webkit-order: 3;
+                order: 3;
+            }
+            
+            .item-3 {
+                background: blue;
+                -webkit-order: 1;
+                order: 1;
+            }
+        </style>
+	</head>
+	
+    <body>
+        Order:
+        <div id="flex-box-1" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>        
+    </body>
+</html>

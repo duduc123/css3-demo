@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Untitled Document</title>
+        <style>
+            .flex-box {
+                margin: 2em;
+                border: 1px solid #ccc;
+                height: 300px;
+                width: 200px;
+                
+                display: -webkit-flex;
+                display: flex;
+                
+                -webkit-flex-direction: row;
+                flex-direction: row; /* row, row-reverse, column, column-reverse */
+                
+                -webkit-align-items: flex-start;
+                align-items: flex-start;
+                
+                /*
+                  IMPORTANT - flex-wrap MUST be set in order for align-content to work as align-content is for multi-lined flex boxes
+                */
+                
+                -webkit-flex-wrap: wrap;
+                flex-wrap: wrap; /* wrap, wrap-reverse, nowrap */
+            }
+            
+            .flex-item {
+                min-width: 100px;
+                min-height: 100px;
+                color: #fff;
+                font-weight: bold;
+                font-family: arial;
+            }
+            
+            .item-1 {
+                background: green;
+            }
+            
+            .item-2 {
+                background: red;
+            }
+            
+            .item-3 {
+                background: blue;
+            }
+            
+            #flex-box-1 {
+                -webkit-align-content: flex-start;
+                align-content: flex-start;
+            }
+            
+            #flex-box-2 {
+                -webkit-align-content: flex-end;
+                align-content: flex-end;
+            }
+            
+            #flex-box-3 {
+               -webkit-align-content: center;
+                align-content: center;
+            }
+            
+            #flex-box-4 {
+               -webkit-align-content: space-between;
+                align-content: space-between;
+            }
+            
+            #flex-box-5 {
+               -webkit-align-content: space-around;
+                align-content: space-around;
+            }
+            
+            #flex-box-6 {
+               -webkit-align-content: stretch;
+                align-content: stretch;
+            }
+
+        </style>
+	</head>
+	
+    <body>
+        Flex-start:
+        <div id="flex-box-1" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Flex-end:
+        <div id="flex-box-2" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Center:
+        <div id="flex-box-3" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Space-between:
+        <div id="flex-box-4" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Space-around:
+        <div id="flex-box-5" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Stretch NOT CURRENTLY WORKING IN CHROME:
+        <div id="flex-box-6" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+    </body>
+</html>

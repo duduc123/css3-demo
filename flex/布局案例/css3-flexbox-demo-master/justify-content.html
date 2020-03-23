@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Untitled Document</title>
+        <style>
+            .flex-box {
+                margin: 2em;
+                border: 1px solid #ccc;
+                height: 100px;
+                width: 400px;
+                
+                display: -webkit-flex;
+                display: flex;
+                
+                -webkit-flex-direction: row;
+                flex-direction: row; /* row, row-reverse, column, column-reverse */
+            }
+            
+            .flex-item {
+                min-width: 100px;
+                min-height: 100px;
+                color: #fff;
+                font-weight: bold;
+                font-family: arial;
+            }
+            
+            .item-1 {
+                background: green;
+            }
+            
+            .item-2 {
+                background: red;
+            }
+            
+            .item-3 {
+                background: blue;
+            }
+            
+            #flex-box-1 {
+                -webkit-justify-content: flex-start;
+                justify-content: flex-start;
+            }
+            
+            #flex-box-2 {
+                -webkit-justify-content: flex-end;
+                justify-content: flex-end;
+            }
+            
+            #flex-box-3 {
+               -webkit-justify-content: center;
+                justify-content: center;
+            }
+            
+            #flex-box-4 {
+               -webkit-justify-content: space-between;
+                justify-content: space-between;
+            }
+            
+            #flex-box-5 {
+               -webkit-justify-content: space-around;
+                justify-content: space-around;
+            }
+        </style>
+	</head>
+	
+    <body>
+        Flex-start:
+        <div id="flex-box-1" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Flex-end:
+        <div id="flex-box-2" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Center:
+        <div id="flex-box-3" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Space-between:
+        <div id="flex-box-4" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Space-around:
+        <div id="flex-box-5" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+    </body>
+</html>

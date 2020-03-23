@@ -1,0 +1,64 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	color: #000000;
+}
+body {
+	min-width: 100%;
+	/* display: -webkit-flex; */
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: start;
+}
+header,
+section,
+nav,
+aside,
+footer {
+	display: flex;
+}
+header {
+	background-color: red;
+	min-height:100px;
+	padding: 10px 20px;
+	width: 100%;
+	order:1;
+}
+section {
+	min-width: 100%;
+	margin: 20px 0;
+	order: 2;
+	flex: 1;/*flex:1 纵轴填充所有剩余空间，和 align-items: stretch*/
+}
+nav {
+	background-color: yellow;
+	padding: 1%;
+	width: 220px;
+	order:1;
+}
+article {
+	background-color: green;
+	width: 100%;
+	padding: 1%;
+	margin-left: 2%;
+	margin-right: 2%;
+	order:2;
+}
+aside {
+	background-color: pink;
+	padding: 1%;
+	width: 220px;
+	order:3;
+}
+footer {
+	background-color: grey;
+	min-height:60px;
+	padding: 1%;
+	min-width: 100%;
+	order:3;
+}

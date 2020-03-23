@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Untitled Document</title>
+        <style>
+            .flex-box {
+                margin: 2em;
+                border: 1px solid #ccc;
+                height: 200px;
+                width: 300px;
+                
+                display: -webkit-flex;
+                display: flex;
+                
+                -webkit-flex-direction: row;
+                flex-direction: row; /* row, row-reverse, column, column-reverse */
+            }
+            
+            .flex-item {
+                min-width: 100px;
+                min-height: 100px;
+                color: #fff;
+                font-weight: bold;
+                font-family: arial;
+            }
+            
+            .item-1 {
+                background: green;
+            }
+            
+            .item-2 {
+                background: red;
+            }
+            
+            .item-3 {
+                background: blue;
+            }
+            
+            #flex-box-1 {
+                -webkit-align-items: flex-start;
+                align-items: flex-start;
+            }
+            
+            #flex-box-2 {
+                -webkit-align-items: flex-end;
+                align-items: flex-end;
+            }
+            
+            #flex-box-3 {
+               -webkit-align-items: center;
+                align-items: center;
+            }
+            
+            #flex-box-4 {
+               -webkit-align-items: baseline;
+                align-items: baseline;
+            }
+            
+            #flex-box-4 .flex-item:first-child {
+                padding-top: 15px;
+            }
+            
+            #flex-box-4 .flex-item:last-child {
+                padding-bottom: 15px;
+            }
+            
+            #flex-box-5 {
+               -webkit-align-items: stretch;
+                align-items: stretch;
+            }
+        </style>
+	</head>
+	
+    <body>
+        Flex-start:
+        <div id="flex-box-1" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Flex-end:
+        <div id="flex-box-2" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Center:
+        <div id="flex-box-3" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Baseline:
+        <div id="flex-box-4" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+        
+        Stretch:
+        <div id="flex-box-5" class="flex-box">
+            <div class="flex-item item-1">1</div>
+            <div class="flex-item item-2">2</div>
+            <div class="flex-item item-3">3</div>
+        </div>
+    </body>
+</html>

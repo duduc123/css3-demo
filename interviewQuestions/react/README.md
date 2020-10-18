@@ -1,5 +1,6 @@
 ## React 面试题整理
 https://mp.weixin.qq.com/s?__biz=Mzg2NDAzMjE5NQ==&mid=2247484667&idx=1&sn=dcaea6836c604100f9811c8c7f98a147&utm_source=tuicool&utm_medium=referral
+
 ## setState 是同步的还是异步的
 detail：https://mp.weixin.qq.com/s?__biz=Mzg2NDAzMjE5NQ==&mid=2247483989&idx=1&sn=d78f889c6e1d7d57058c9c232b1a620e&chksm=ce6ec6f9f9194fef681c79ee869bf58d5413132c73496710b2eb32c859a2249a895c2ce8a7cd&scene=21#wechat_redirect
 在 React 的生命周期和合成事件中， React 仍然处于他的更新机制中，这时无论调用多少次 setState ，都会不会立即执行更新，而是将要更新的·存入 _pendingStateQueue ，将要更新的组件存入 dirtyComponent 
@@ -25,7 +26,13 @@ React 事件并没有绑定在真实的 Dom 节点上，而是通过事件代理
 
 
 ## react diff 算法
-
+推荐阅读：深入理解React：diff 算法 https://blog.csdn.net/sinat_17775997/article/details/107151447
+传统的diff 算法的事件复杂度O(n*3)
+为了优化diff 算法， React提出了两个假设：
+1.相同的组件，产生相同的dom结构
+2.
+针对上述两个假设， React针对性的提出了三个策略以对diff 算法进行优化：
+1.
 ## 虚拟Dom是什么
 
 
@@ -33,4 +40,33 @@ React 事件并没有绑定在真实的 Dom 节点上，而是通过事件代理
 
 ## hooks
 
+推荐阅读：
+十个案例学会 React Hookshttps://blog.csdn.net/sinat_17775997/article/details/89208701
+React Hooks 使用详解 https://blog.csdn.net/sinat_17775997/article/details/89087266
+自定义hooks： https://blog.csdn.net/sinat_17775997/article/details/96476696
+React Hooks  VS 类组件 的好处：
+1.代码可读性更强，原本同一块功能的代码逻辑被拆分在了不同的生命周期函数中，不利于维护和迭代，通过 React Hooks 可以将功能代码聚合，方便阅读维护。
+2.组件树层级变浅. 在Class 中要复用组件的状态的话要通过HOC/render props 等方式实现，增加了组件树层数及渲染。而在 React Hooks 中，这些功能都可以通过自定义的 Hooks 来实现。
+
+常用的Hooks
+-1、useState
+const [state, setState] = useState(initialState);
+与在类中使用 setState 的异同点：
+相同点：也是异步的，例如在 onClick 事件中，调用两次 setState，数据只改变一次。
+不同点：类中的 setState 是合并，而函数组件中的 setState 是替换。
+
+-2、useEffect: 异步请求，副作用的操作
+第一个参数传递函数，可以用来做一些副作用比如异步请求，修改外部参数等行为，
+第二个参数是个数组，如果数组中的值才会触发 useEffect 第一个参数中的函数。useEffect 中数组没有传值，代表不监听任何参数变化，即只有在组件初始化或销毁的时候才会触发，用来代替 componentDidMount 和 componentWillUnmount
+返回值(如果有)则在组件销毁或者调用函数前调用。
+
+-3、useContext:用来处理多层级传递数据
+使用 useContext 可以解决 Consumer 多状态嵌套的问题
+
+-4、useReducer, 是useState 的替代方案，当你涉及多个子值的复杂 state(状态) 逻辑时，useReducer 通常优于 useState。
+与 useState 的区别：
+1. 当 state 状态值结构比较复杂时，使用 useReducer 更有优势
+2. 使用 useState 获取的 setState 方法更新数据时是异步的；而使用 useReducer 获取的 dispatch 方法更新数据是同步的。
+
+-5、useCallback
 ## react 中使用了哪些设计模式
